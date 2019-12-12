@@ -19,23 +19,23 @@ pageextension 50100 "CSD Resource Card Ext" extends "Resource Card"
         {
             group("CSD Room")
             {
-                Caption='Room';
-                Visible=ShowMaxField;
-                field("CSD Maximum Participants";"CSD Maximum Participants")
+                Caption = 'Room';
+                Visible = ShowMaxField;
+                field("CSD Maximum Participants"; "CSD Maximum Participants")
                 {
-                    ApplicationArea=All;
+                    ApplicationArea = All;
                 }
             }
         }
     }
-    
+
     trigger OnAfterGetRecord();
     begin
-        ShowMaxField:=(Type=Type::Machine);
+        ShowMaxField := (Type = Type::Machine);
         CurrPage.Update(false);
     end;
 
     var
         [InDataSet]
-                ShowMaxField:Boolean;
+        ShowMaxField: Boolean;
 }
