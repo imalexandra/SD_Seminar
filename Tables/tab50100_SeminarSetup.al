@@ -2,8 +2,6 @@ table 50100 "CSD Seminar Setup"
 {
     Caption = 'Seminar Setup';
 
-    DataClassification = ToBeClassified;
-
     fields
     {
         field(10; "Primary Key"; Code[10])

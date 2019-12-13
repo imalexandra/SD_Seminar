@@ -1,5 +1,5 @@
 pageextension 50100 "CSD Resource Card Ext" extends "Resource Card"
-// CSD1.00 - 2018-02-01 - D. E. Veloper
+// 
 {
     layout
     {
