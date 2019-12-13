@@ -99,7 +99,7 @@ page 50110 "CSD Seminar Registration"
                 {
                     ApplicationArea = All;
                 }
-                field("Room City"; "Room City")
+                field("Room City"; "Room City") 
                 {
                     ApplicationArea = All;
                 }
