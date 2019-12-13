@@ -1,15 +1,13 @@
-page 50110 "CSD Seminar Registration"
+page 50118 "CSD Posted Seminar Reg."
 {
     // CSD1.00 - 2018-01-01 - D. E. Veloper
-    //   Chapter 6 - Lab 3-1
+    //   Chapter 7 - Lab 3
     //     - Created new page
-    //   Chapter 8 - Lab 2 - 4
-    //   Added Action Navigate
 
-
-    Caption = 'Seminar Registration';
+    Caption = 'Posted Seminar Registration';
+    Editable = false;
     PageType = Document;
-    SourceTable = "CSD Seminar Reg. Header";
+    SourceTable = "CSD Posted Seminar Reg. Header";
 
     layout
     {
@@ -19,12 +17,7 @@ page 50110 "CSD Seminar Registration"
             {
                 field("No."; "No.")
                 {
-                    AssistEdit = true;
-                    trigger OnAssistEdit();
-                    begin
-                        if AssistEdit(xRec) then
-                            CurrPage.UPDATE;
-                    end;
+                    ApplicationArea = All;
                 }
                 field("Starting Date"; "Starting Date")
                 {
@@ -71,10 +64,9 @@ page 50110 "CSD Seminar Registration"
                     ApplicationArea = All;
                 }
             }
-            part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
+            part(SeminarRegistrationLines; "CSD Post Seminar Reg. Subpage")
             {
-                Caption = 'Lines';
-                SubPageLink = "Document No." = field("No.");
+                SubPageLink = "Document No." = Field ("No.");
                 ApplicationArea = All;
             }
             group("Seminar Room")
@@ -133,15 +125,14 @@ page 50110 "CSD Seminar Registration"
             part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
                 ApplicationArea = All;
-                SubPageLink = "No." = field("Seminar No.");
+                SubPageLink = "No." = Field ("Seminar No.");
             }
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
-                ApplicationArea = All;
                 Provider = SeminarRegistrationLines;
-                SubPageLink = "No." = field("Bill-to Customer No.");
+                SubPageLink = "No." = Field ("Bill-to Customer No.");
+                ApplicationArea = All;
             }
-
             systempart("Links"; Links)
             {
                 ApplicationArea = All;
@@ -162,30 +153,20 @@ page 50110 "CSD Seminar Registration"
                 Caption = '&Seminar Registration';
                 action("Co&mments")
                 {
-                    ApplicationArea = All;
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 50106;
-                    RunPageLink = "No." = Field("No.");
-                    RunPageView = where("Table Name" = const("Seminar Registration"));
+                    RunObject = page "CSD Seminar Comment List";
+                    RunPageLink = "No." = Field ("No.");
+                    RunPageView = where ("Table Name" = const ("Posted Seminar Registration"));
+                    ApplicationArea = All;
                 }
                 action("&Charges")
                 {
-                    ApplicationArea = All;
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page 50124;
-                    RunPageLink = "Document No." = Field("No.");
-                }
-                action("&Post")
-                {
-                    Caption = '&Post';
-                    Image = PostDocument;
-                    Promoted = true;
-                    PromotedIsBig = true;
-                    PromotedCategory = Process;
-                    ShortcutKey = F9;
-                    RunObject = codeunit "CSD Seminar-Post (Yes/No)";
+                    RunObject = Page "CSD Posted Seminar Charges";
+                    RunPageLink = "Document No." = Field ("No.");
+                    ApplicationArea = All;
                 }
             }
         }
