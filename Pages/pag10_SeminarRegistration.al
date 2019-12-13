@@ -74,7 +74,7 @@ page 50110 "CSD Seminar Registration"
             part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
             {
                 Caption = 'Lines';
-                SubPageLink = "Document No." = field ("No.");
+                SubPageLink = "Document No." = field("No.");
                 ApplicationArea = All;
             }
             group("Seminar Room")
@@ -99,7 +99,7 @@ page 50110 "CSD Seminar Registration"
                 {
                     ApplicationArea = All;
                 }
-                field("Room City"; "Room City") 
+                field("Room City"; "Room City")
                 {
                     ApplicationArea = All;
                 }
@@ -133,13 +133,13 @@ page 50110 "CSD Seminar Registration"
             part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
                 ApplicationArea = All;
-                SubPageLink = "No." = field ("Seminar No.");
+                SubPageLink = "No." = field("Seminar No.");
             }
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
                 ApplicationArea = All;
                 Provider = SeminarRegistrationLines;
-                SubPageLink = "No." = field ("Bill-to Customer No.");
+                SubPageLink = "No." = field("Bill-to Customer No.");
             }
 
             systempart("Links"; Links)
@@ -166,8 +166,8 @@ page 50110 "CSD Seminar Registration"
                     Caption = 'Co&mments';
                     Image = Comment;
                     RunObject = Page 50106;
-                    RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = const ("Seminar Registration"));
+                    RunPageLink = "No." = Field("No.");
+                    RunPageView = where("Table Name" = const("Seminar Registration"));
                 }
                 action("&Charges")
                 {
@@ -175,7 +175,7 @@ page 50110 "CSD Seminar Registration"
                     Caption = '&Charges';
                     Image = Costs;
                     RunObject = Page 50124;
-                    RunPageLink = "Document No." = Field ("No.");
+                    RunPageLink = "Document No." = Field("No.");
                 }
             }
         }
